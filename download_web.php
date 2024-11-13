@@ -7,6 +7,13 @@ ini_set('max_execution_time', '3600');
 ini_set('set_time_limit', '0');
 set_time_limit(3600);
 
+header('Content-Description: File Transfer');
+header('Content-Type: application/x-tar'); // MIME type for .tar files
+header('Content-Disposition: attachment; filename="web.tar"');
+header('Expires: 0');
+header('Cache-Control: must-revalidate');
+header('Pragma: public');
+
 $exclude = array('_test');
 
 function addFileToTar($tar, $filePath, $archivePath) {
